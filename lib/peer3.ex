@@ -15,8 +15,8 @@ def start do
   receive do
     { :sys, system } -> 
       send system, {DAC.self_string(), pl}
-      process.sleep(5)
-      process.exit()
+      Process.sleep(5)
+      Process.exit()
   end
 end
 
