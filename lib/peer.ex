@@ -13,8 +13,8 @@ def start do
   send app, { :bind, beb}
   send beb, { :bind, pl, app}
   receive do
-    { :sys, system } -> 
-      send system, {DAC.self_string(), pl}
+    { :sys, system2 } -> 
+      send system2, {DAC.self_string(), pl}
   end
 end
 

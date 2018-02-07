@@ -23,11 +23,7 @@ end
 defp next(beb) do
 
   receive do 
-    { :pl_send, dest, } -> 
-      cond do
-        DAC.random(100) > 0 -> send dest, {:broadcast, DAC.self_string()}
-        true -> send dest, {:b, DAC.self_string()}
-      end
+    { :pl_send, dest, } -> send dest, {:broadcast, DAC.self_string()}
     { :broadcast, pid} -> send beb, { :pl_deliver, pid,}
   end
   next(beb)

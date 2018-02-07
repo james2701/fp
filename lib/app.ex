@@ -39,7 +39,7 @@ defp next(beb, [peer0, peer1, peer2, peer3, peer4], broadcasts, timeout, r0, r1,
           ^p3 -> {r0, r1, r2, r3+1, r4}
           ^p4 -> {r0, r1, r2, r3, r4+1}
         end
-    after 10 -> {r0, r1, r2, r3, r4}
+    after 1_000 -> {r0, r1, r2, r3, r4}
     end
     time = Time.utc_now();
     ntime_out = 
@@ -65,7 +65,7 @@ defp next(beb, [peer0, peer1, peer2, peer3, peer4], broadcasts, timeout, r0, r1,
         ^p3 -> {r0, r1, r2, r3+1, r4}
         ^p4 -> {r0, r1, r2, r3, r4+1}
       end
-  after 10 -> {r0, r1, r2, r3, r4}
+  after 1_000 -> {r0, r1, r2, r3, r4}
   end
     time = Time.utc_now();
     ntime_out = 
