@@ -53,7 +53,8 @@ def main do
   send pl4, { :broadcast, 1000, 3000}
 
   receive do
-    after 5 ->  Process.exit(peer3, :kill)
+    { :aaa, :bbb } -> Process.exit(peer3, :kill1)
+    after 5 -> Process.exit(peer3, :kill)
   end
 
 
