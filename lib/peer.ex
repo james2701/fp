@@ -18,9 +18,5 @@ def start do
   end
 end
 
-
-
-
-
 end # module -----------------------
 
