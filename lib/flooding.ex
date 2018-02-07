@@ -8,7 +8,7 @@ def main do
   peer0 = spawn(Peer, :start, [])
   peer1 = spawn(Peer, :start, [])
   peer2 = spawn(Peer, :start, [])
-  peer3 = spawn(Peer, :start, [])
+  peer3 = spawn(Peer3, :start, [])
   peer4 = spawn(Peer, :start, [])
 
   send peer0, { :sys, self() }
@@ -46,12 +46,11 @@ def main do
   send pl3, { :binding, [pl0, pl1, pl2, pl3, pl4]}
   send pl4, { :binding, [pl0, pl1, pl2, pl3, pl4]}
 
-  send pl0, { :broadcast, 10_000_000, 3000}
-  send pl1, { :broadcast, 10_000_000, 3000}
-  send pl2, { :broadcast, 10_000_000, 3000}
-  send pl3, { :broadcast, 10_000_000, 3000}
-  send pl4, { :broadcast, 10_000_000, 3000}
-
+  send pl0, { :broadcast, 1000, 3000}
+  send pl1, { :broadcast, 1000, 3000}
+  send pl2, { :broadcast, 1000, 3000}
+  send pl3, { :broadcast, 1000, 3000}
+  send pl4, { :broadcast, 1000, 3000}
 
 end
 
