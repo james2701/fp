@@ -5,7 +5,7 @@
 defmodule Peer3 do
 
 def start do
-  IO.puts ["      Peer3 at ", DNS.my_ip_addr()]
+  IO.puts ["      Peer at ", DNS.my_ip_addr()]
   pl = spawn(Pl, :start, [])
   beb = spawn(Beb, :start, [])
   app = spawn(App, :start, [])
@@ -15,7 +15,8 @@ def start do
   receive do
     { :sys, system } -> 
       send system, {DAC.self_string(), pl}
-      IO.puts "ygod "
+      process.sleep(5)
+      process.kill()
   end
 end
 
